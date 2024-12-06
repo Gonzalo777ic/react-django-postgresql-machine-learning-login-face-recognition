@@ -1,0 +1,31 @@
+# Ignorar el entorno virtual de Django
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Ignorar dependencias de Node.js (React)
+node_modules/
+
+# Archivos de configuración de IDEs y editores de texto
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Archivos de compilación
+*.log
+*.sqlite3
+*.pyc
+__pycache__/
+
+# Archivos de caché
+*.bak
+*.swp
+*.swo
+
+# Ignorar imágenes personales o archivos sensibles
+# Agrega los directorios o archivos específicos de tu proyecto que no quieras que se suban
+/path/to/your/images/*
