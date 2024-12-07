@@ -41,7 +41,6 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -49,18 +48,23 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+# Permite solicitudes CORS desde el origen del frontend con credenciales
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',  # Asegúrate de que esta sea la URL de tu frontend
 ]
+
+
 CORS_ALLOW_HEADERS = [
     'content-type',
-    'authorization',  # Asegura que el token JWT sea permitido
-    # otros encabezados si es necesario...
+    'X-CSRFToken',  # Asegura que el token CSRF sea permitido
+    'authorization',  # Para el token JWT
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True  # Para permitir todas las solicitudes de cualquier origen
+CORS_ALLOW_ALL_ORIGINS = False
 
 
 ROOT_URLCONF = 'backend.urls'
@@ -108,6 +112,11 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:3000',  # o https://localhost:3000 si usas HTTPS
+]
+
 
 AUTH_USER_MODEL = 'ml.User'  # Reemplaza 'myapp' con el nombre de tu aplicación
 

@@ -1,0 +1,14 @@
+# Ignorar entorno virtual
+venv/
+
+# Ignorar archivos de configuración de editor (opcional, si usas VSCode o similar)
+.vscode/
+
+# Ignorar archivos de bases de datos de Django (si los tienes)
+db.sqlite3
+
+# Archivos de migraciones de Django
+*.log
+*.pot
+*.pyc
+__pycache__
